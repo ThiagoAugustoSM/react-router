@@ -6,6 +6,8 @@ import CategoryScreen from './views/CategoryScreen';
 import ErrorScreen from './views/ErrorScreen';
 import ProductScreen from './views/ProductScreen';
 
+import Header from './components/Header';
+
 import {BrowserRouter as Router,
         Route,
         Switch
@@ -15,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
         <Switch>
           <Route exact path='/' component={HomeScreen}/>
           <Route path='/carrinhodecompras' component={ShoppingCartScreen}/>
