@@ -1,14 +1,21 @@
 import React from 'react';
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 
 import './Header.css';
 
 const Header = (props) => {
+
+  let history = useHistory();
+
+  const goToHome = () => {
+    history.push('/');
+  }
+
   return (
-    <NavLink exact to='/' activeClassName='link-platzi'>
+    <div onClick={goToHome} className='logo'>
       <h1>Platzi Store</h1>
-    </NavLink>
+    </div>
   )
 }
 
