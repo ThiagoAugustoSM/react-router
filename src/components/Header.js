@@ -4,12 +4,14 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 
 import './Header.css';
 
+import * as ROUTES from '../constants/Routes';
+
 const Header = (props) => {
 
   let history = useHistory();
 
   const goToHome = () => {
-    history.push('/');
+    history.push(ROUTES.HOME_SCREEN);
   }
 
   return (

@@ -10,8 +10,11 @@ import Header from './components/Header';
 
 import {BrowserRouter as Router,
         Route,
-        Switch
+        Switch,
+        Redirect
         } from 'react-router-dom';
+
+import * as ROUTES from './constants/Routes';
 
 function App() {
   return (
@@ -19,11 +22,14 @@ function App() {
       <Router>
         <Header/>
         <Switch>
-          <Route exact path='/' component={HomeScreen}/>
-          <Route path='/carrinhodecompras' component={ShoppingCartScreen}/>
-          <Route path='/categoria' component={CategoryScreen}/>
-          <Route path='/error' component={ErrorScreen}/>
-          <Route path='/produto' component={ProductScreen}/>
+          <Route exact path={ROUTES.HOME_SCREEN} component={HomeScreen}/>
+          <Route path={ROUTES.SHOPPING_CART_SCREEN} component={ShoppingCartScreen}/>
+          <Route path={ROUTES.CATEGORY_SCREEN} component={CategoryScreen}/>
+          <Route path={ROUTES.CATEGORY_SCREEN_OLD}>
+            <Redirect to={ROUTES.CATEGORY_SCREEN}/>
+          </Route>
+          <Route path={ROUTES.ERROR_SCREEN} component={ErrorScreen}/>
+          <Route path={ROUTES.PRODUCT_SCREEN} component={ProductScreen}/>
         </Switch>
       </Router>
     </div>
