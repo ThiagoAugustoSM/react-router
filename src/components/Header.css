@@ -1,7 +1,23 @@
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #263D4A;
+}
+
 .link-platzi{
   color: green;
 }
 
 .logo{
   cursor: pointer;
+  flex: 2;
+}
+
+.form{
+  flex: 5;
+}
+
+.shoppingCart{
+  flex: 1;
 }

@@ -20,11 +20,11 @@ const Header = (props) => {
   }
 
   return (
-    <>
+    <div className='header'>
       <div onClick={goToHome} className='logo'>
         <h1>Platzi Store</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <input
           placeholder='O que você quer pesquisar?'
         >
@@ -35,7 +35,10 @@ const Header = (props) => {
         />
 
       </form>
-    </>
+      <div className='shoppingCart'>
+        <p>Carrinho</p>
+      </div>
+    </div>
   )
 }
 
