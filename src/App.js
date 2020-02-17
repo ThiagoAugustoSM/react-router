@@ -28,7 +28,7 @@ function App() {
           <Route path={ROUTES.CATEGORY_SCREEN_OLD}>
             <Redirect to={ROUTES.CATEGORY_SCREEN}/>
           </Route>
-          <Route path={ROUTES.PRODUCT_SCREEN} component={ProductScreen}/>
+          <Route path={ROUTES.PRODUCT_SCREEN_ID} component={ProductScreen}/>
           <Route path={ROUTES.ERROR_SCREEN} component={ErrorScreen}/>
         </Switch>
       </Router>
