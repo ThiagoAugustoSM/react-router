@@ -41,9 +41,9 @@ const Header = (props) => {
 
       </form>
       <div className='shoppingCart'>
-        <FaShoppingCart/>
+        <FaShoppingCart className='icon'/>
         <div className='qnt'>
-          0
+          <p>0</p>
         </div>
         <p>Meu Carrinho</p>
       </div>
