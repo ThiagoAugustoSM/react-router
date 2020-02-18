@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
@@ -15,13 +15,15 @@ function useQuery() {
 const CategoryScreen = (props) => {
 
   let query = useQuery();
+  let [products, setProducts] = useState([]);
 
   useEffect(() => {
     (async () => {
-      let products = await searchByName('shoes');
+      let products = await searchByName(query.get('name'));
       console.log(products);
-      let product = await searchById(9851612);
-      console.log(product);
+      setProducts(products)
+      // let product = await searchById(9851612);
+      // console.log(product);
     })();
   }, []);
 
@@ -31,11 +33,15 @@ const CategoryScreen = (props) => {
       {query.get('promocao') && <h1>VENHA APROVEITAR AS PROMOÇÕES!!</h1>}
       {query.get('name') && <h1>Categoria: {query.get('name')}</h1>}
       <div className='container__categoryScreen'>
-      <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
-      <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
-      <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
-      <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
-      <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
+        {
+         products.map(item => 
+            <ProductCard
+              key={item.name}
+              name={item.name}
+              price={item.price.current.value}
+              imgUrl={`https://${item.imageUrl}`}
+            />) 
+        }
       </div>
     </div>    
     </>
