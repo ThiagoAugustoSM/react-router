@@ -6,8 +6,7 @@ import CategoryCard from '../components/CategoryCard';
 const HomeScreen = (props) => {
   return (
     <>
-      <h1>HomeScreen</h1>
-      <ProductCard/>
+      <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
       <CategoryCard name='bags' promocao='hoje'/>
     </>
   )

@@ -15,7 +15,13 @@ const ProductCard = (props) => {
   }
 
   return (
-    <h1 className='productCard' onClick={() => goToProductScreen('1234')}>ProductCard</h1>
+    <div className='productCard' onClick={() => goToProductScreen('1234')}>
+      <img src={props.imgUrl}></img>
+      <div className='stats'>
+        <p className='productName'>{props.name}</p>
+        <p className='productPrice'> R${props.price}</p>
+      </div>
+    </div>
   )
 }
 
