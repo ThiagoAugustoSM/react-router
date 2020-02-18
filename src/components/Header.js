@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { useHistory, Prompt } from 'react-router-dom';
 
+import { FaShoppingCart, FaShoppingBasket } from 'react-icons/fa';
+
 import './Header.css';
 
 import * as ROUTES from '../constants/Routes';
@@ -21,8 +23,11 @@ const Header = (props) => {
 
   return (
     <div className='header'>
-      <div onClick={goToHome} className='logo'>
-        <h1>Platzi Store</h1>
+      <div onClick={goToHome} className='title'>
+        <div className='logo'>
+          PS
+        </div>
+        <h1 className='name'>PLATZI STORE</h1>
       </div>
       <form onSubmit={handleSubmit} className='form'>
         <input
@@ -36,7 +41,11 @@ const Header = (props) => {
 
       </form>
       <div className='shoppingCart'>
-        <p>Carrinho</p>
+        <FaShoppingCart/>
+        <div className='qnt'>
+          0
+        </div>
+        <p>Meu Carrinho</p>
       </div>
     </div>
   )
