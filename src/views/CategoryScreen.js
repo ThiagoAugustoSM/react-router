@@ -40,6 +40,7 @@ const CategoryScreen = (props) => {
               name={item.name}
               price={item.price.current.value}
               imgUrl={`https://${item.imageUrl}`}
+              id={item.id}
             />) 
         }
       </div>

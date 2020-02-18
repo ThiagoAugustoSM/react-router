@@ -15,7 +15,7 @@ const ProductCard = (props) => {
   }
 
   return (
-    <div className='productCard' onClick={() => goToProductScreen('1234')}>
+    <div className='productCard' onClick={() => goToProductScreen(props.id)}>
       <img src={props.imgUrl}></img>
       <div className='stats'>
         <p className='productName'>{props.name}</p>
