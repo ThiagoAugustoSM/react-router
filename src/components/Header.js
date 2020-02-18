@@ -17,8 +17,13 @@ const Header = (props) => {
     history.push(ROUTES.HOME_SCREEN);
   }
 
-  const handleSubmit = () => {
-    alert('Foi Submetido')
+  const goToPromo = (name) => {
+    history.push(`${ROUTES.CATEGORY_SCREEN}?name=${name}`)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    goToPromo(event.target[0].value)
   }
 
   return (

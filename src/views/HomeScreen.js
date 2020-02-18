@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { useHistory } from 'react-router-dom';
 
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
 
 import './HomeScreen.css';
 
+import * as ROUTES from '../constants/Routes';
+
+import { searchByName } from '../api/asosStore';
+
 const HomeScreen = (props) => {
+
+  let history = useHistory();
+  let [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let products = await searchByName('watches');
+      setProducts(products.slice(0,3));
+    })();
+  }, []);
+
+  const goToPromo = () => {
+    history.push(`${ROUTES.CATEGORY_SCREEN}?name=watches&promocao=hoje`)
+  }
+
+
   return (
     <>
       <div className='container'>
@@ -14,7 +36,7 @@ const HomeScreen = (props) => {
           <h1>JÁ ESTÁ NA HORA DE TROCAR ESSE RELÓGIO!</h1>
           <p>Que tal ver as novas oportunidades dos relógios moda verão Platzi?</p>
           <p>Eles vem com desconto na plataforma educacional!</p>
-          <button>Ver promoções</button>
+          <button onClick={goToPromo}>Ver promoções</button>
         </div>
         <div className='container categoria'>
           <h1>Principais Categorias</h1>
@@ -27,9 +49,16 @@ const HomeScreen = (props) => {
           </div>
           <h1>Produtos em Promoção</h1>
           <div className='card__container cardContainer__product'>
-            <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
-            <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
-            <ProductCard name='Relogio' price='12,00' imgUrl='https://images.asos-media.com/products/bellfield-mens-chronograph-bracelet-watch-in-gold/13215289-1-gold'/>
+          {
+            products.map(item => 
+                <ProductCard
+                  key={item.name}
+                  name={item.name}
+                  price={item.price.current.value}
+                  imgUrl={`https://${item.imageUrl}`}
+                  id={item.id}
+                />) 
+          }
           </div>
         </div>
       </div>

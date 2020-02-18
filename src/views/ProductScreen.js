@@ -13,7 +13,7 @@ const ProductScreen = (props) => {
 
   useEffect(() => {
     (async () => {
-      let product = await searchById(9851612);
+      let product = await searchById(id);
       console.log(product)
       setProduct(product);
     })();

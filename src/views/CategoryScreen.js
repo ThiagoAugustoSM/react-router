@@ -22,8 +22,6 @@ const CategoryScreen = (props) => {
       let products = await searchByName(query.get('name'));
       console.log(products);
       setProducts(products)
-      // let product = await searchById(9851612);
-      // console.log(product);
     })();
   }, []);
 
