@@ -1,0 +1,18 @@
+.container__bodyCategory{
+  width: auto;
+  padding: 40px;
+}
+
+.container__categoryScreen{
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-self: center;
+  justify-content: space-around;
+  align-items: space-between;
+
+  margin-top: 20px;
+  
+  position: relative;
+  width: 100%;
+}
