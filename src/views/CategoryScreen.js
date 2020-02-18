@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard';
 
 import './CategoryScreen.css';
 
-import { searchByName } from '../api/asosStore';
+import { searchByName, searchById } from '../api/asosStore';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -17,7 +17,12 @@ const CategoryScreen = (props) => {
   let query = useQuery();
 
   useEffect(() => {
-    searchByName('shoes');
+    (async () => {
+      let products = await searchByName('shoes');
+      console.log(products);
+      let product = await searchById(9851612);
+      console.log(product);
+    })();
   }, []);
 
   return (
