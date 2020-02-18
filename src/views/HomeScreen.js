@@ -8,7 +8,7 @@ const HomeScreen = (props) => {
     <>
       <h1>HomeScreen</h1>
       <ProductCard/>
-      <CategoryCard name='shoes' promocao='hoje'/>
+      <CategoryCard name='bags' promocao='hoje'/>
     </>
   )
 }
