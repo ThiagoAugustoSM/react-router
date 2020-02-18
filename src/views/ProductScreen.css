@@ -1,0 +1,45 @@
+.container__product{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+  
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  border-style: solid;
+}
+
+.imageContainer{
+  position: relative;
+  flex: 1;
+}
+
+.textContainer{
+  padding: 20px;
+  position: relative;
+  flex: 2;
+}
+
+.priceContainer{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.priceContainer p{
+  font-size: 30px;
+  margin: 0;
+}
+
+.priceContainer button{
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+}
