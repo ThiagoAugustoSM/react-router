@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
 import ProductCard from '../components/ProductCard';
 
 import './CategoryScreen.css';
+
+import { searchByName } from '../api/asosStore';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -13,6 +15,10 @@ function useQuery() {
 const CategoryScreen = (props) => {
 
   let query = useQuery();
+
+  useEffect(() => {
+    searchByName('shoes');
+  }, []);
 
   return (
     <>
