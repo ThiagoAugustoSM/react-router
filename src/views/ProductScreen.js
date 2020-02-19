@@ -4,6 +4,10 @@ import { searchById } from '../api/asosStore';
 
 import { useParams } from 'react-router-dom';
 
+import { addItem } from '../store/actions';
+import { connect } from 'react-redux';
+import { bindActionCreators} from 'redux';
+
 import './ProductScreen.css';
 
 const ProductScreen = (props) => {
@@ -41,7 +45,7 @@ const ProductScreen = (props) => {
 
             <div className='priceContainer'>
               <p>R$ {product ? product.price.current.value : ''}</p>
-              <button>Adicionar ao Carrinho</button>
+              <button onClick={() => props.addItem(product)}>Adicionar ao Carrinho</button>
             </div>
 
             <div className='productContainer'>
@@ -57,4 +61,8 @@ const ProductScreen = (props) => {
    )
 }
 
-export default ProductScreen;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ addItem }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ProductScreen);

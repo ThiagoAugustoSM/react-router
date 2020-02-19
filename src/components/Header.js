@@ -6,6 +6,8 @@ import { FaShoppingCart, FaShoppingBasket } from 'react-icons/fa';
 
 import './Header.css';
 
+import { connect } from 'react-redux';
+
 import * as ROUTES from '../constants/Routes';
 
 const Header = (props) => {
@@ -52,7 +54,7 @@ const Header = (props) => {
       <div className='shoppingCart' onClick={goToShoppingCart}>
         <FaShoppingCart className='icon'/>
         <div className='qnt'>
-          <p>0</p>
+          <p>{props.products.length}</p>
         </div>
         <p>Meu Carrinho</p>
       </div>
@@ -60,4 +62,9 @@ const Header = (props) => {
   )
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {products: state}
+}
+
+
+export default connect(mapStateToProps)(Header);
