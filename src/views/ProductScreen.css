@@ -43,3 +43,8 @@
   color: white;
   background-color: black;
 }
+
+img.center {
+  display: block;
+  margin: 0 auto;
+}

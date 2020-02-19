@@ -16,10 +16,13 @@ const CategoryScreen = (props) => {
 
   let query = useQuery();
   let [products, setProducts] = useState([]);
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       let products = await searchByName(query.get('name'));
+      setLoading(false);
       console.log(products);
       setProducts(products)
     })();
@@ -30,18 +33,26 @@ const CategoryScreen = (props) => {
     <div className='container__bodyCategory'>
       {query.get('promocao') && <h1>VENHA APROVEITAR AS PROMOÇÕES!!</h1>}
       {query.get('name') && <h1>Categoria: {query.get('name')}</h1>}
-      <div className='container__categoryScreen'>
-        {
-         products.map(item => 
-            <ProductCard
-              key={item.name}
-              name={item.name}
-              price={item.price.current.value}
-              imgUrl={`https://${item.imageUrl}`}
-              id={item.id}
-            />) 
-        }
-      </div>
+      
+      {
+        loading &&
+          <img className='center' src={`${process.env.PUBLIC_URL}/loading.gif`}></img>
+      }
+      {
+        !loading && 
+          <div className='container__categoryScreen'>
+            {
+            products.map(item => 
+                <ProductCard
+                  key={item.name}
+                  name={item.name}
+                  price={item.price.current.value}
+                  imgUrl={`https://${item.imageUrl}`}
+                  id={item.id}
+                />) 
+            }
+          </div>
+      }
     </div>    
     </>
   )
