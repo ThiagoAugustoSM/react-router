@@ -1,0 +1,36 @@
+.container__error{
+  height: 87vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.container__error .text{
+  display: flex;
+  flex: 4;
+  flex-direction: column;
+  align-content: center;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif;
+}
+
+img{
+  flex: 1;
+  height: 500px;
+}
+
+.container__error .text input{
+  text-align: center;
+  align-self: center;
+  font-size: 15px;
+	font-weight:bold;
+  cursor: pointer;
+  color: #F5CE2F;
+  padding:0.35em 1.2em;
+  border-radius:0.2em;
+  background-color: #263D4A; 
+}
