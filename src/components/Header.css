@@ -44,6 +44,7 @@ form {
 .shoppingCart{
   display: flex;
   flex: 2;
+  cursor: pointer;
 }
 
 .shoppingCart .icon{

@@ -21,6 +21,10 @@ const Header = (props) => {
     history.push(`${ROUTES.CATEGORY_SCREEN}?name=${name}`)
   }
 
+  const goToShoppingCart = () => {
+    history.push(ROUTES.SHOPPING_CART_SCREEN)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     goToPromo(event.target[0].value)
@@ -45,7 +49,7 @@ const Header = (props) => {
         />
 
       </form>
-      <div className='shoppingCart'>
+      <div className='shoppingCart' onClick={goToShoppingCart}>
         <FaShoppingCart className='icon'/>
         <div className='qnt'>
           <p>0</p>

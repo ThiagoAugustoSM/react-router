@@ -1,0 +1,25 @@
+body{
+  background-color: #F3F3F3;
+}
+
+.container__bodyCategory{
+  height: 100%;
+  width: auto;
+  font-family: 'Raleway', sans-serif;
+  padding: 40px;
+}
+
+.container__categoryScreen{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-self: center;
+  justify-content: space-around;
+  align-items: space-between;
+
+  margin-top: 20px;
+  
+  position: relative;
+  width: 100%;
+}
