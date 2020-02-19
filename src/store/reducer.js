@@ -8,7 +8,7 @@ const shoppingCart = (state = [], action) => {
         action.item
       ];
     case REMOVE_ITEM:
-      return state;
+      return state.filter((item) => item.id != action.item.id);
     default:
       return state;
   }
